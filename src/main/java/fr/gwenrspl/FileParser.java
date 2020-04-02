@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class FileParser {
     private static final String PATH_TO_FILE = "src/resources/input.txt";
 
-    public Lawn parseLawn() throws FileParserException {
+    public static Lawn parseLawn() throws FileParserException {
         int width = 0;
         int height = 0;
         try (BufferedReader reader = new BufferedReader(new FileReader(PATH_TO_FILE))) {
@@ -27,7 +27,7 @@ public class FileParser {
         return new Lawn(width, height);
     }
 
-    public List<Mower> parseMowers() throws FileParserException, InvalidOrientationCharacter, InvalidInstructionCharacter {
+    public static List<Mower> parseMowers() throws FileParserException, InvalidOrientationCharacter, InvalidInstructionCharacter {
         List<Mower> mowers = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(PATH_TO_FILE))) {
             String line = reader.readLine();
@@ -39,7 +39,7 @@ public class FileParser {
                 Orientation orientation = Orientation.getByChar(stringArray[2].charAt(0));
                 Position position = new Position(x, y, orientation);
 
-                List<Character> list = this.splitToListOfChar(reader.readLine());
+                List<Character> list = splitToListOfChar(reader.readLine());
                 List<Instruction> instructions = new ArrayList<>();
                 for (Character c : list) {
                     Instruction instruction = Instruction.getByChar(c);
@@ -54,7 +54,7 @@ public class FileParser {
         return mowers;
     }
 
-    public List<Character> splitToListOfChar(String str) {
+    public static List<Character> splitToListOfChar(String str) {
         return str.chars()
                 .mapToObj(item -> (char) item)
                 .collect(Collectors.toList());

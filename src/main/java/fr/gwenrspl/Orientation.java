@@ -15,11 +15,15 @@ public enum Orientation {
     }
 
     public static Orientation getByChar(char character) throws InvalidOrientationCharacter {
-        for(Orientation orientation: Orientation.values()){
-            if(character == orientation.orientationChar){
+        for (Orientation orientation : Orientation.values()) {
+            if (character == orientation.orientationChar) {
                 return orientation;
             }
         }
         throw new InvalidOrientationCharacter(character + " is not a valid orientation character");
+    }
+
+    public char getOrientationChar() {
+        return this.orientationChar;
     }
 }

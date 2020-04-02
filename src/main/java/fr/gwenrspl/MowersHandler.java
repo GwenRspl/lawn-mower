@@ -1,14 +1,36 @@
 package fr.gwenrspl;
 
+import fr.gwenrspl.exceptions.FileParserException;
+import fr.gwenrspl.exceptions.InvalidInstructionCharacter;
+import fr.gwenrspl.exceptions.InvalidOrientationCharacter;
+
 import java.util.List;
 
 public class MowersHandler {
     private Lawn lawn;
     private List<Mower> mowers;
 
-    public MowersHandler(Lawn lawn, List<Mower> mowers) {
-        this.lawn = lawn;
-        this.mowers = mowers;
+    public void initMowersHandler() throws FileParserException, InvalidOrientationCharacter, InvalidInstructionCharacter {
+        this.lawn = FileParser.parseLawn();
+        this.mowers = FileParser.parseMowers();
+    }
+
+    public String executeMowersHandler() {
+        StringBuilder result = new StringBuilder();
+        try {
+            this.initMowersHandler();
+        } catch (FileParserException | InvalidOrientationCharacter | InvalidInstructionCharacter e) {
+            result.append(e.getMessage());
+        }
+        for (Mower mower : this.mowers) {
+            Position position = mower.processInstructions();
+            result.append(position.getX());
+            result.append(" ");
+            result.append(position.getY());
+            result.append(" ");
+            result.append(position.getOrientation().getOrientationChar());
+        }
+        return result.toString();
     }
 
     public Lawn getLawn() {
