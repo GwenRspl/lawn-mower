@@ -13,7 +13,7 @@ public class Position {
         this.orientation = orientation;
     }
 
-    public Position moveForward(Lawn lawn) {
+    public void moveForward(Lawn lawn) {
         switch (this.orientation) {
             case NORTH:
                 if (this.y < lawn.getMaxHeight()) {
@@ -35,11 +35,11 @@ public class Position {
                     this.moveSouth();
                 }
                 break;
+            //TODO add default
         }
-        return this;
     }
 
-    public Position turnLeft() {
+    public void turnLeft() {
         switch (this.orientation) {
             case NORTH:
                 this.orientation = Orientation.WEST;
@@ -53,11 +53,12 @@ public class Position {
             case SOUTH:
                 this.orientation = Orientation.EAST;
                 break;
+            //TODO add default
         }
-        return this;
+
     }
 
-    public Position turnRight() {
+    public void turnRight() {
         switch (this.orientation) {
             case NORTH:
                 this.orientation = Orientation.EAST;
@@ -71,8 +72,8 @@ public class Position {
             case SOUTH:
                 this.orientation = Orientation.WEST;
                 break;
+            //TODO add default
         }
-        return this;
     }
 
     private void moveWest() {

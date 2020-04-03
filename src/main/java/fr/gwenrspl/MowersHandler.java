@@ -10,7 +10,8 @@ public class MowersHandler {
     private Lawn lawn;
     private List<Mower> mowers;
 
-    public void initMowersHandler() throws FileParserException, InvalidOrientationCharacter, InvalidInstructionCharacter {
+
+    private void initMowersHandler() throws FileParserException, InvalidOrientationCharacter, InvalidInstructionCharacter {
         this.lawn = FileParser.parseLawn();
         this.mowers = FileParser.parseMowers();
     }
@@ -23,14 +24,15 @@ public class MowersHandler {
             result.append(e.getMessage());
         }
         for (Mower mower : this.mowers) {
-            Position position = mower.processInstructions();
+            Position position = mower.processInstructions(this.lawn);
             result.append(position.getX());
             result.append(" ");
             result.append(position.getY());
             result.append(" ");
             result.append(position.getOrientation().getOrientationChar());
+            result.append("\n");
         }
-        return result.toString();
+        return result.toString().trim();
     }
 
     public Lawn getLawn() {

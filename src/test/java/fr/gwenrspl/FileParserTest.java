@@ -40,7 +40,7 @@ public class FileParserTest {
         i1.add(Instruction.LEFT);
         i1.add(Instruction.FORWARD);
         i1.add(Instruction.FORWARD);
-        Mower expectedMower1 = new MowerImpl(p1, i1);
+        Mower expectedMower1 = new Mower(p1, i1);
 
         Position p2 = new Position(3, 3, Orientation.EAST);
         List<Instruction> i2 = new ArrayList<>();
@@ -54,7 +54,7 @@ public class FileParserTest {
         i2.add(Instruction.RIGHT);
         i2.add(Instruction.RIGHT);
         i2.add(Instruction.FORWARD);
-        Mower expectedMower2 = new MowerImpl(p2, i2);
+        Mower expectedMower2 = new Mower(p2, i2);
 
         List<Mower> mowers = Arrays.asList(expectedMower1, expectedMower2);
         assertThat(this.fileParser.parseMowers()).isEqualTo(mowers);

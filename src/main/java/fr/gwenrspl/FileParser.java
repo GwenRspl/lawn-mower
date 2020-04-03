@@ -45,7 +45,7 @@ public class FileParser {
                     Instruction instruction = Instruction.getByChar(c);
                     instructions.add(instruction);
                 }
-                Mower mower = new MowerImpl(position, instructions);
+                Mower mower = new Mower(position, instructions);
                 mowers.add(mower);
             }
         } catch (IOException e) {
