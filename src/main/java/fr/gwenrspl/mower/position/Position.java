@@ -1,4 +1,6 @@
-package fr.gwenrspl;
+package fr.gwenrspl.mower.position;
+
+import fr.gwenrspl.Lawn;
 
 import java.util.Objects;
 
@@ -35,7 +37,6 @@ public class Position {
                     this.moveSouth();
                 }
                 break;
-            //TODO add default
         }
     }
 
@@ -53,7 +54,6 @@ public class Position {
             case SOUTH:
                 this.orientation = Orientation.EAST;
                 break;
-            //TODO add default
         }
 
     }
@@ -72,7 +72,6 @@ public class Position {
             case SOUTH:
                 this.orientation = Orientation.WEST;
                 break;
-            //TODO add default
         }
     }
 

@@ -1,5 +1,9 @@
 package fr.gwenrspl;
 
+import fr.gwenrspl.mower.Instruction;
+import fr.gwenrspl.mower.Mower;
+import fr.gwenrspl.mower.position.Orientation;
+import fr.gwenrspl.mower.position.Position;
 import org.junit.Before;
 import org.junit.Test;
 

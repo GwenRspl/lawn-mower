@@ -1,6 +1,7 @@
 package fr.gwenrspl;
 
 import fr.gwenrspl.exceptions.InvalidInstructionCharacter;
+import fr.gwenrspl.mower.Instruction;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Test;
 

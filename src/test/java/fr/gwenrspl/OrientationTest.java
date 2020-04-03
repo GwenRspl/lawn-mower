@@ -1,6 +1,7 @@
 package fr.gwenrspl;
 
 import fr.gwenrspl.exceptions.InvalidOrientationCharacter;
+import fr.gwenrspl.mower.position.Orientation;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Test;
 

@@ -1,4 +1,7 @@
-package fr.gwenrspl;
+package fr.gwenrspl.mower;
+
+import fr.gwenrspl.Lawn;
+import fr.gwenrspl.mower.position.Position;
 
 import java.util.List;
 import java.util.Objects;
@@ -25,8 +28,6 @@ public class Mower {
                 case RIGHT:
                     this.position.turnRight();
                     break;
-                //TODO add default
-
             }
         }
         return this.position;

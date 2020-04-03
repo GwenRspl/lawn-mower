@@ -3,7 +3,11 @@ package fr.gwenrspl;
 import fr.gwenrspl.exceptions.FileParserException;
 import fr.gwenrspl.exceptions.InvalidInstructionCharacter;
 import fr.gwenrspl.exceptions.InvalidOrientationCharacter;
-import org.junit.Before;
+import fr.gwenrspl.mower.Instruction;
+import fr.gwenrspl.mower.Mower;
+import fr.gwenrspl.mower.position.Orientation;
+import fr.gwenrspl.mower.position.Position;
+import fr.gwenrspl.utils.FileParser;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -14,17 +18,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class FileParserTest {
 
-    private FileParser fileParser;
-
-    @Before
-    public void setUp() {
-        this.fileParser = new FileParser();
-    }
-
     @Test
     public void should_create_valid_lawn() throws FileParserException {
         Lawn expectedLawn = new Lawn(5, 5);
-        assertThat(this.fileParser.parseLawn()).isEqualTo(expectedLawn);
+        assertThat(FileParser.parseLawn()).isEqualTo(expectedLawn);
     }
 
     @Test
@@ -57,14 +54,14 @@ public class FileParserTest {
         Mower expectedMower2 = new Mower(p2, i2);
 
         List<Mower> mowers = Arrays.asList(expectedMower1, expectedMower2);
-        assertThat(this.fileParser.parseMowers()).isEqualTo(mowers);
+        assertThat(FileParser.parseMowers()).isEqualTo(mowers);
     }
 
     @Test
     public void should_return_list_of_chars() {
         String stringToSplit = "ABCDEF";
         List<Character> characterList = Arrays.asList('A', 'B', 'C', 'D', 'E', 'F');
-        assertThat(this.fileParser.splitToListOfChar(stringToSplit)).isEqualTo(characterList);
+        assertThat(FileParser.splitToListOfChar(stringToSplit)).isEqualTo(characterList);
 
     }
 

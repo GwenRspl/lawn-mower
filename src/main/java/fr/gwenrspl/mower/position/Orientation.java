@@ -1,4 +1,4 @@
-package fr.gwenrspl;
+package fr.gwenrspl.mower.position;
 
 import fr.gwenrspl.exceptions.InvalidOrientationCharacter;
 

@@ -1,4 +1,4 @@
-package fr.gwenrspl;
+package fr.gwenrspl.mower;
 
 import fr.gwenrspl.exceptions.InvalidInstructionCharacter;
 
@@ -14,8 +14,8 @@ public enum Instruction {
     }
 
     public static Instruction getByChar(char character) throws InvalidInstructionCharacter {
-        for(Instruction instruction: Instruction.values()){
-            if(character == instruction.instructionChar){
+        for (Instruction instruction : Instruction.values()) {
+            if (character == instruction.instructionChar) {
                 return instruction;
             }
         }

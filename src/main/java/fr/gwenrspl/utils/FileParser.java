@@ -1,8 +1,13 @@
-package fr.gwenrspl;
+package fr.gwenrspl.utils;
 
+import fr.gwenrspl.Lawn;
 import fr.gwenrspl.exceptions.FileParserException;
 import fr.gwenrspl.exceptions.InvalidInstructionCharacter;
 import fr.gwenrspl.exceptions.InvalidOrientationCharacter;
+import fr.gwenrspl.mower.Instruction;
+import fr.gwenrspl.mower.Mower;
+import fr.gwenrspl.mower.position.Orientation;
+import fr.gwenrspl.mower.position.Position;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
