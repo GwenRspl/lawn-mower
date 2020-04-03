@@ -26,7 +26,7 @@ public class Position {
                 }
                 break;
             case WEST:
-                if (this.x < lawn.getMinWidth()) {
+                if (this.x > lawn.getMinWidth()) {
                     this.moveWest();
                 }
                 break;
