@@ -3,20 +3,30 @@ package fr.gwenrspl;
 import java.util.Objects;
 
 public class Lawn {
-    private final int width;
-    private final int height;
+    private final int maxWidth;
+    private final int maxHeight;
+    private final int minWidth = 0;
+    private final int minHeight = 0;
 
-    public Lawn(int width, int height) {
-        this.width = width;
-        this.height = height;
+    public Lawn(int maxWidth, int maxHeight) {
+        this.maxWidth = maxWidth;
+        this.maxHeight = maxHeight;
     }
 
-    public int getWidth() {
-        return this.width;
+    public int getMaxWidth() {
+        return this.maxWidth;
     }
 
-    public int getHeight() {
-        return this.height;
+    public int getMaxHeight() {
+        return this.maxHeight;
+    }
+
+    public int getMinWidth() {
+        return this.minWidth;
+    }
+
+    public int getMinHeight() {
+        return this.minHeight;
     }
 
     @Override
@@ -28,20 +38,24 @@ public class Lawn {
             return false;
         }
         Lawn lawn = (Lawn) o;
-        return this.width == lawn.width &&
-                this.height == lawn.height;
+        return this.maxWidth == lawn.maxWidth &&
+                this.maxHeight == lawn.maxHeight &&
+                this.minWidth == lawn.minWidth &&
+                this.minHeight == lawn.minHeight;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.width, this.height);
+        return Objects.hash(this.maxWidth, this.maxHeight, this.minWidth, this.minHeight);
     }
 
     @Override
     public String toString() {
         return "Lawn{" +
-                "width=" + this.width +
-                ", height=" + this.height +
+                "maxWidth=" + this.maxWidth +
+                ", maxHeight=" + this.maxHeight +
+                ", minWidth=" + this.minWidth +
+                ", minHeight=" + this.minHeight +
                 '}';
     }
 }

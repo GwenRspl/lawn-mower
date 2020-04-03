@@ -13,29 +13,98 @@ public class Position {
         this.orientation = orientation;
     }
 
+    public Position moveForward(Lawn lawn) {
+        switch (this.orientation) {
+            case NORTH:
+                if (this.y < lawn.getMaxHeight()) {
+                    this.moveNorth();
+                }
+                break;
+            case EAST:
+                if (this.x < lawn.getMaxWidth()) {
+                    this.moveEast();
+                }
+                break;
+            case WEST:
+                if (this.x < lawn.getMinWidth()) {
+                    this.moveWest();
+                }
+                break;
+            case SOUTH:
+                if (this.y > lawn.getMinHeight()) {
+                    this.moveSouth();
+                }
+                break;
+        }
+        return this;
+    }
+
+    public Position turnLeft() {
+        switch (this.orientation) {
+            case NORTH:
+                this.orientation = Orientation.WEST;
+                break;
+            case EAST:
+                this.orientation = Orientation.NORTH;
+                break;
+            case WEST:
+                this.orientation = Orientation.SOUTH;
+                break;
+            case SOUTH:
+                this.orientation = Orientation.EAST;
+                break;
+        }
+        return this;
+    }
+
+    public Position turnRight() {
+        switch (this.orientation) {
+            case NORTH:
+                this.orientation = Orientation.EAST;
+                break;
+            case EAST:
+                this.orientation = Orientation.SOUTH;
+                break;
+            case WEST:
+                this.orientation = Orientation.NORTH;
+                break;
+            case SOUTH:
+                this.orientation = Orientation.WEST;
+                break;
+        }
+        return this;
+    }
+
+    private void moveWest() {
+        this.x -= 1;
+    }
+
+    private void moveEast() {
+        this.x += 1;
+    }
+
+    private void moveSouth() {
+        this.y -= 1;
+    }
+
+    private void moveNorth() {
+        this.y += 1;
+    }
+
     public int getX() {
         return this.x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
 
     public int getY() {
         return this.y;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
 
     public Orientation getOrientation() {
         return this.orientation;
     }
 
-    public void setOrientation(Orientation orientation) {
-        this.orientation = orientation;
-    }
 
     @Override
     public boolean equals(Object o) {
