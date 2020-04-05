@@ -37,8 +37,8 @@ public class FileParser {
      * @throws FileParserException when encounters a problem with the input file
      */
     public static Lawn parseLawn() throws FileParserException {
-        int width = 0;
-        int height = 0;
+        int width;
+        int height;
         try (BufferedReader reader = new BufferedReader(new FileReader(PATH_TO_FILE))) {
             String[] stringArray = reader.readLine().split(" ");
             width = Integer.parseInt(stringArray[0]);
@@ -60,8 +60,8 @@ public class FileParser {
     public static List<Mower> parseMowers() throws FileParserException, InvalidOrientationCharacter, InvalidInstructionCharacter {
         List<Mower> mowers = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(PATH_TO_FILE))) {
-            String line = reader.readLine();
-
+            reader.readLine();
+            String line;
             while ((line = reader.readLine()) != null) {
                 String[] stringArray = line.split(" ");
                 int x = Integer.parseInt(stringArray[0]);
