@@ -37,20 +37,4 @@ public class MowersHandler {
         }
         return result.toString().trim();
     }
-
-    public Lawn getLawn() {
-        return this.lawn;
-    }
-
-    public void setLawn(Lawn lawn) {
-        this.lawn = lawn;
-    }
-
-    public List<Mower> getMowers() {
-        return this.mowers;
-    }
-
-    public void setMowers(List<Mower> mowers) {
-        this.mowers = mowers;
-    }
 }
