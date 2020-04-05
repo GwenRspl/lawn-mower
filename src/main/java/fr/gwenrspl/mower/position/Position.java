@@ -1,12 +1,27 @@
 package fr.gwenrspl.mower.position;
 
 import fr.gwenrspl.Lawn;
+import fr.gwenrspl.mower.Mower;
 
 import java.util.Objects;
 
+/**
+ * The class representing the position of a {@link Mower} on the {@link Lawn}
+ *
+ * @author Gwen Rspl
+ */
 public class Position {
+    /**
+     * The x coordinate of the position
+     */
     private int x;
+    /**
+     * The y coordinate of the position
+     */
     private int y;
+    /**
+     * The orientation of the position
+     */
     private Orientation orientation;
 
     public Position(int x, int y, Orientation orientation) {
@@ -15,6 +30,11 @@ public class Position {
         this.orientation = orientation;
     }
 
+    /**
+     * The method to change position and move forward according to the orientation
+     *
+     * @param lawn the lawn to calculate if the new position will be out of bounds
+     */
     public void moveForward(Lawn lawn) {
         switch (this.orientation) {
             case NORTH:
@@ -40,6 +60,9 @@ public class Position {
         }
     }
 
+    /**
+     * The method to change the orientation of the position anticlockwise
+     */
     public void turnLeft() {
         switch (this.orientation) {
             case NORTH:
@@ -58,6 +81,9 @@ public class Position {
 
     }
 
+    /**
+     * The method to change the orientation of the position clockwise
+     */
     public void turnRight() {
         switch (this.orientation) {
             case NORTH:
@@ -75,18 +101,30 @@ public class Position {
         }
     }
 
+    /**
+     * Moves the position west
+     */
     private void moveWest() {
         this.x -= 1;
     }
 
+    /**
+     * Moves the position east
+     */
     private void moveEast() {
         this.x += 1;
     }
 
+    /**
+     * Moves the position south
+     */
     private void moveSouth() {
         this.y -= 1;
     }
 
+    /**
+     * Moves the position north
+     */
     private void moveNorth() {
         this.y += 1;
     }

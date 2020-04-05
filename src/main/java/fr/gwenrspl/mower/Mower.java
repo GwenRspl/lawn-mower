@@ -6,8 +6,19 @@ import fr.gwenrspl.mower.position.Position;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The class representing the mower
+ *
+ * @author Gwen Rspl
+ */
 public class Mower {
+    /**
+     * The position of the mower on the lawn
+     */
     private final Position position;
+    /**
+     * The list of instructions the mower must execute
+     */
     private final List<Instruction> instructions;
 
     public Mower(Position position, List<Instruction> instructions) {
@@ -15,7 +26,12 @@ public class Mower {
         this.instructions = instructions;
     }
 
-
+    /**
+     * This method make the mower process the instructions to move on the lawn
+     *
+     * @param lawn the lawn where the mower is located
+     * @return the new position of the mower after executing all the instructions
+     */
     public Position processInstructions(Lawn lawn) {
         for (Instruction instruction : this.instructions) {
             switch (instruction) {

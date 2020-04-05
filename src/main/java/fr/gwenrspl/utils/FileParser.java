@@ -16,9 +16,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The class parsing the content of the input file into {@link Lawn}, {@link Mower} and {@link Instruction}
+ *
+ * @author Gwen Rspl
+ */
 public class FileParser {
+    /**
+     * The path to the file containing the instructions
+     */
     private static final String PATH_TO_FILE = "src/resources/input.txt";
 
+    private FileParser() {
+    }
+
+    /**
+     * Creates a lawn according to the instruction in the input file
+     *
+     * @return the lawn newly created
+     * @throws FileParserException when encounters a problem with the input file
+     */
     public static Lawn parseLawn() throws FileParserException {
         int width = 0;
         int height = 0;
@@ -32,6 +49,14 @@ public class FileParser {
         return new Lawn(width, height);
     }
 
+    /**
+     * Creates a list of mowers according to the instructions in the input file
+     *
+     * @return the list of mowers newly created
+     * @throws FileParserException         when encounters a problem with the input file
+     * @throws InvalidOrientationCharacter when it encounters an invalid orientation character
+     * @throws InvalidInstructionCharacter when it encounters an invalid instruction character
+     */
     public static List<Mower> parseMowers() throws FileParserException, InvalidOrientationCharacter, InvalidInstructionCharacter {
         List<Mower> mowers = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(PATH_TO_FILE))) {
@@ -59,6 +84,12 @@ public class FileParser {
         return mowers;
     }
 
+    /**
+     * This method transform a string into a list of characters
+     *
+     * @param str the string to split into characters
+     * @return the list of characters newly created
+     */
     public static List<Character> splitToListOfChar(String str) {
         return str.chars()
                 .mapToObj(item -> (char) item)

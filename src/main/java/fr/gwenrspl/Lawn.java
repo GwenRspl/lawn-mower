@@ -2,10 +2,27 @@ package fr.gwenrspl;
 
 import java.util.Objects;
 
+/**
+ * The class representing the lawn
+ *
+ * @author Gwen Rspl
+ */
 public class Lawn {
+    /**
+     * The maximum width of the lawn
+     */
     private final int maxWidth;
+    /**
+     * The maximum height of the lawn
+     */
     private final int maxHeight;
+    /**
+     * The minimum width of the lawn
+     */
     private final int minWidth = 0;
+    /**
+     * The minimum height of the lawn
+     */
     private final int minHeight = 0;
 
     public Lawn(int maxWidth, int maxHeight) {
